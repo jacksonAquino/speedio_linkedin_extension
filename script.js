@@ -21,9 +21,9 @@ function setVisual(info){
 
   const values_in_html = values.reduce((total, value)=>{
     return total + `
-      <div>
-        ${value.name}
-        ${info[value.field]}
+      <div class="info">
+        <p>${value.name}</p>
+        <span>${info[value.field]}</span>
       </div>
     `
   }, '')

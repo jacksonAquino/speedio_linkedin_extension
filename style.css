@@ -43,11 +43,6 @@
   align-self: flex-start;
 }
 
-.summary{
-  display: flex;
-  gap: 20px;
-}
-
 #main span{
   font-weight: bold;
 }
@@ -55,8 +50,15 @@
 section > div{
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
   gap: 5px;
+}
+
+#section_first {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-bottom: 20px;
 }
 
 .ocult {
