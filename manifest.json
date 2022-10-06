@@ -7,6 +7,9 @@
   "background": {
     "service_worker": "background.js"
   },
+  "host_permissions": [
+    "http://65.108.9.219:5000/get_data_linkedin"
+  ],
   "action": {
     "default_popup": "not_in_profile.html",
     "default_icon": {

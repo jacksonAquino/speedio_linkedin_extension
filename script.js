@@ -2,14 +2,16 @@ const section = document.getElementById('section_first')
 
 async function loadInformation(url){
   try {
-    const res = await axios.get('https://api-publica.speedio.com.br/buscarcnpj?cnpj=59291534000167')
-    console.log(res)
+    const res = await axios.post('http://65.108.9.219:5000/get_data_linkedin?link=www.linkedin.com/in/maucirnascimento/')
+    return {
+      cnpj: "9898989998998",
+      name: "carros do balacobaco"
+    }
   } catch(e) {
-    console.log('deu ruim')
-  }
-  return {
-    cnpj: "9898989998998",
-    name: "carros do balacobaco"
+    return {
+      cnpj: "9898989998998",
+      name: "carros do balacobaco"
+    }
   }
 }
 
@@ -36,8 +38,8 @@ function setVisual(info){
   section.innerHTML = values_in_html
 }
 
-function execute(){
-  const information = loadInformation('kjadkjdajda')
+async function execute(){
+  const information = await loadInformation('kjadkjdajda')
   setVisual(information)
 }
 
