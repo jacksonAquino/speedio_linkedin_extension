@@ -18,52 +18,57 @@ async function loadInformation(url){
 function setVisual(info){
   const values = [
     {
-      name: 'CNAE',
-      field: 'cnae1_desc'
-    },
-    {
-      name: 'Situação do cnpj',
-      field: 'ds_situacao_cnpj'
-    },
-    {
-      name: 'Data de abertura',
-      field: 'dt_abertura'
-    },
-    {
-      name: 'Endereço',
-      field: 'main_cnae_group_des'
-    },
-    // {
-    //   name: 'Nome',
-    //   field: 'no_pessoa'
-    // },
-    {
-      name: 'Cep',
-      field: 'nu_cep'
-    },
-    {
       name: 'CNPJ',
       field: 'nu_cnpj'
     },
     {
-      name: 'Faturamento estimado da Empresa',
-      field: 'revenue_a32_cnpj_desc'
+      name: 'Situação',
+      field: 'ds_situacao_cnpj'
     },
     {
-      name: 'Faixa estimada de funcionários da Empresa',
+      name: 'Setor',
+      field: 'main_cnae_group_des'
+    },
+    {
+      name: 'Atividade',
+      field: 'cnae1_desc'
+    },
+    {
+      name: 'Idade da empresa',
+      field: 'idade'
+    },
+    {
+      name: 'Website',
+      field: 'website_data'
+    },
+    {
+      name: 'Faixa estimada de funcionários da empresa',
       field: 'total_employees_r2016_cnpj_range_desc'
     },
+    {
+      name: 'Faturamento estimado da empresa',
+      field: 'revenue_a32_company_desc'
+    },
+    {
+      name: '',
+      field: ''
+    },
+    {
+      name: 'Faturamento estimado do CNPJ',
+      field: 'revenue_a32_cnpj_desc'
+    }
   ]
 
   const values_in_html = values.reduce((total, value)=>{
     return total + `
       <div class="info">
-        <p>${value.name}</p>
-        <span>${info[value.field]}</span>
+        <p>${value.name || ''}</p>
+        <span>${info[value.field] || ''}</span>
       </div>
     `
   }, '')
   section.innerHTML = values_in_html
+  document.getElementById('company-name').innerHTML = info['no_pessoa']
 }
 
 async function execute(){

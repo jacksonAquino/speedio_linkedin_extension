@@ -12,7 +12,7 @@ async function execute(){
     chrome.action.setIcon({ path: "icons/16.png" })
     chrome.action.setPopup({ popup: "information.html" })
   } else {
-    chrome.action.setIcon({ path: "icons/gato16.png" })
+    chrome.action.setIcon({ path: "icons/16-sad.png" })
     chrome.action.setPopup({ popup: "not_in_profile.html" })
   }
 }
