@@ -10,8 +10,15 @@ async function loadInformation(url){
     return res.data
   } catch(e) {
     document.getElementById('loading_content').style.display = 'none'
-    document.getElementById('user_is_not_in_profile').style.display = 'flex'
     document.getElementById('main').style.display = 'none'
+
+    if (!e.response || e.response.status >= 500)
+      document.getElementById('not_found').style.display = 'flex'
+    else if(e.response.status === 403)
+      document.getElementById('limit_exceed').style.display = 'flex'
+    else
+      document.getElementById('user_is_not_in_profile').style.display = 'flex'
+
   }
 }
 

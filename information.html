@@ -5,19 +5,31 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="loading_content" class="content">
+  <div id="loading_content" class="content" style="display: flex;">
     <div>
       <img src="./icons/logo.svg" alt="">
       <h1 class="loading">Carregando informações</h1>
     </div>
   </div>
   <div id="user_is_not_in_profile">
-    <img src="./icons/logo-sad.svg" width="50px"/>
+    <img src="./icons/logo-sad.svg" />
     <h1>
       Não encontramos nenhum resultado :(
     </h1>
   </div>
-  <div id="main" class="content">
+  <div id="not_found" class="content">
+    <img src="./icons/logo-sad.svg"/>
+    <h1>
+      Ocorreu um erro em nosso sistemas, e fomos incapazes de efetuar a busca :( 
+    </h1>
+  </div>
+  <div id="limit_exceed" class="content">
+    <img src="./icons/logo-sad.svg"/>
+    <h1>
+      Você atingiu o limite máximo de usos :( 
+    </h1>
+  </div>
+  <div id="main" class="content" style="flex-direction: column;">
     <div>
       <img src="./icons/logo.svg" alt="">
       <h1 id="company-name"></h1>

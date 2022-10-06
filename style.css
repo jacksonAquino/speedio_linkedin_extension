@@ -20,8 +20,7 @@
 .content{
   padding: 20px;
   width: 480px;
-  display: flex;
-  flex-direction: column;
+  display: none;
   background: #F5F5F5;
   color: #4C525A;
   align-items: center;
@@ -29,6 +28,10 @@
 }
 
 #main{
+  display: none;
+}
+
+.ocult{
   display: none;
 }
 
@@ -43,7 +46,7 @@
 }
 
 .content img{
-  width: 50px;
+  width: 50px !important;
   align-self: flex-start;
 }
 
