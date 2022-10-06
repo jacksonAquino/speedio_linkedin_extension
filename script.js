@@ -3,19 +3,19 @@ const section = document.getElementById('section_first')
 async function loadInformation(url){
   try {
     const res = await axios.post('http://65.108.9.219:5000/get_data_linkedin?link=www.linkedin.com/in/maucirnascimento/')
-    return {
-      cnpj: "9898989998998",
-      name: "carros do balacobaco"
-    }
+    document.getElementById('loading_content').style.display = 'none'
+    document.getElementById('user_is_not_in_profile').style.display = 'none'
+    document.getElementById('main').style.display = 'flex'
+    return res.data
   } catch(e) {
-    return {
-      cnpj: "9898989998998",
-      name: "carros do balacobaco"
-    }
+    document.getElementById('loading_content').style.display = 'none'
+    document.getElementById('user_is_not_in_profile').style.display = 'flex'
+    document.getElementById('main').style.display = 'none'
   }
 }
 
 function setVisual(info){
+  
   const values = [
     {
       name: 'Nome',
@@ -40,7 +40,8 @@ function setVisual(info){
 
 async function execute(){
   const information = await loadInformation('kjadkjdajda')
-  setVisual(information)
+  if ( information )
+    setVisual(information)
 }
 
 execute()

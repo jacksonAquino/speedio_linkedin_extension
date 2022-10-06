@@ -10,14 +10,14 @@
 #user_is_not_in_profile{
   padding: 20px;
   width: 480px;
-  display: flex;
+  display: none;
   background: #F5F5F5;
   color: #4C525A;
   align-items: center;
   gap: 50px;
 }
 
-#main{
+.content{
   padding: 20px;
   width: 480px;
   display: flex;
@@ -28,22 +28,26 @@
   gap: 50px;
 }
 
-#main > :first-child {
+#main{
+  display: none;
+}
+
+.content > :first-child {
   display: flex;
   width: 100%;
   align-items: center;
   gap: 20px;
 }
-#main > :first-child > h1{
+.content > :first-child > h1{
   font-size: 20px;
 }
 
-#main img{
+.content img{
   width: 50px;
   align-self: flex-start;
 }
 
-#main span{
+.content span{
   font-weight: bold;
 }
 
@@ -57,10 +61,5 @@ section > div{
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 20px;
-	margin-bottom: 20px;
-}
-
-.ocult {
-  display: none !important;  
+	gap: 10px;
 }
