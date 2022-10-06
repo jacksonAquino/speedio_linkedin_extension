@@ -8,7 +8,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "not_in_profile.html",
     "default_icon": {
       "16": "/icons/16.png",
       "32": "/icons/32.png",
