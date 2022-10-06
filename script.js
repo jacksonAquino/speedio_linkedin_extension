@@ -1,8 +1,9 @@
 const section = document.getElementById('section_first')
 
 async function loadInformation(url){
+  url = url.replace('https://', '')
   try {
-    const res = await axios.post('http://65.108.9.219:5000/get_data_linkedin?link=www.linkedin.com/in/maucirnascimento/')
+    const res = await axios.post(`http://65.108.9.219:5000/get_data_linkedin?link=${url}`)
     document.getElementById('loading_content').style.display = 'none'
     document.getElementById('user_is_not_in_profile').style.display = 'none'
     document.getElementById('main').style.display = 'flex'
@@ -15,15 +16,42 @@ async function loadInformation(url){
 }
 
 function setVisual(info){
-  
   const values = [
     {
-      name: 'Nome',
-      field: 'name'
+      name: 'CNAE',
+      field: 'cnae1_desc'
     },
     {
-      name: 'Cnpj',
-      field: 'cnpj'
+      name: 'Situação do cnpj',
+      field: 'ds_situacao_cnpj'
+    },
+    {
+      name: 'Data de abertura',
+      field: 'dt_abertura'
+    },
+    {
+      name: 'Endereço',
+      field: 'main_cnae_group_des'
+    },
+    // {
+    //   name: 'Nome',
+    //   field: 'no_pessoa'
+    // },
+    {
+      name: 'Cep',
+      field: 'nu_cep'
+    },
+    {
+      name: 'CNPJ',
+      field: 'nu_cnpj'
+    },
+    {
+      name: 'Faturamento estimado da Empresa',
+      field: 'revenue_a32_cnpj_desc'
+    },
+    {
+      name: 'Faixa estimada de funcionários da Empresa',
+      field: 'total_employees_r2016_cnpj_range_desc'
     },
   ]
 
@@ -39,8 +67,10 @@ function setVisual(info){
 }
 
 async function execute(){
-  const information = await loadInformation('kjadkjdajda')
-  if ( information )
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true })
+  const url = tab.url
+  const information = await loadInformation(url)
+  if(information)
     setVisual(information)
 }
 
