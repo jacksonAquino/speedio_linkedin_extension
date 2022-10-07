@@ -3,7 +3,7 @@
   "description": "Busque os dados da empresa desse perfil ou a empresa em que ela trabalha",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["background", "activeTab", "scripting", "notifications", "alarms", "tabs"],
+  "permissions": ["activeTab", "scripting", "tabs"],
   "background": {
     "service_worker": "background.js"
   },
